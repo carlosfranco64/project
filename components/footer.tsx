@@ -27,7 +27,7 @@ export function Footer() {
     : "https://blog.gatewayit.co/wp-content/uploads/2023/04/cropped-gateway-it-logo-4-1.png";
 
   return (
-    <footer className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8">
+    <footer className="relative bg-gradient-to-br from-gray-10 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8">
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#0b90d8]/10 rounded-full blur-3xl" />
