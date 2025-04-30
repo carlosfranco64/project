@@ -30,7 +30,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 border-b bg-white dark:bg-gray-900 shadow-md">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           {mounted && (
@@ -49,68 +49,67 @@ export function Navbar() {
           )}
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6">
+        {/* Navegación en escritorio */}
+        <div className="hidden lg:flex gap-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
+              className="text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
             >
               {item.name}
             </Link>
           ))}
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center space-x-4">
-          {/* Tornado Digital (desktop only) */}
+        {/* Acciones */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          {/* Tornado Digital (escritorio) */}
           <Button
             asChild
-            className="bg-[#3db8ff] hover:bg-[#cc1a24] text-white hidden sm:block"
+            className="hidden sm:block bg-[#3db8ff] hover:bg-[#cc1a24] text-white transition-colors duration-200"
           >
             <Link href="https://tornado.gatewayit.co/login">
               TORNADO DIGITAL
             </Link>
           </Button>
 
-          {/* Theme Toggle */}
+          {/* Botón de tema */}
           <Button
             variant="outline"
             size="icon"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label="Cambiar tema"
           >
             {mounted && (theme === "dark" ? <Sun /> : <Moon />)}
           </Button>
 
-          {/* Mobile Menu Toggle */}
+          {/* Botón del menú móvil */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
+            aria-label="Abrir menú"
           >
             {menuOpen ? <X /> : <Menu />}
           </Button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div
-          id="mobile-menu"
-          className="md:hidden bg-white dark:bg-gray-900 p-4 space-y-4 shadow transition-all"
-        >
+      {/* Menú móvil */}
+      <div
+        className={`lg:hidden transition-max-height duration-300 ease-in-out overflow-hidden ${
+          menuOpen ? "max-h-[500px]" : "max-h-0"
+        }`}
+      >
+        <div className="flex flex-col gap-4 px-4 py-6 bg-white dark:bg-gray-900 shadow-md">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="block text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
+              className="text-base font-medium text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
             >
               {item.name}
             </Link>
@@ -118,14 +117,14 @@ export function Navbar() {
 
           <Button
             asChild
-            className="bg-[#3db8ff] hover:bg-[#cc1a24] text-white w-full"
+            className="w-full bg-[#3db8ff] hover:bg-[#cc1a24] text-white"
           >
             <Link href="https://tornado.gatewayit.co/login">
               TORNADO DIGITAL
             </Link>
           </Button>
         </div>
-      )}
+      </div>
     </header>
   );
 }
