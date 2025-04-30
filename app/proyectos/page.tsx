@@ -142,62 +142,65 @@ export default function ProjectsPage() {
             </p>
           </motion.div>
 
-          <Tabs defaultValue="inProgress" className="mt-8">
-            <TabsList className="w-full max-w-2xl mx-auto bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-full p-1">
-              <TabsTrigger 
-                value="inProgress"
-                className="rounded-full text-sm md:text-base transition-all data-[state=active]:bg-[#0b90d8] data-[state=active]:text-white"
-              >
-                En ejecución
-              </TabsTrigger>
-              <TabsTrigger 
-                value="completed"
-                className="rounded-full text-sm md:text-base transition-all data-[state=active]:bg-[#0b90d8] data-[state=active]:text-white"
-              >
-                Ejecutados
-              </TabsTrigger>
-              <TabsTrigger 
-                value="prototypes"
-                className="rounded-full text-sm md:text-base transition-all data-[state=active]:bg-[#0b90d8] data-[state=active]:text-white"
-              >
-                Prototipos
-              </TabsTrigger>
-            </TabsList>
-            {Object.entries(projectCategories).map(([category, projects]) => (
-              <TabsContent key={category} value={category}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                  {projects.map((project, index) => (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      key={index}
-                    >
-                      <Card className="group overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                        <div className="relative h-48 w-full overflow-hidden">
-                          <Image
-                            src={project.image}
-                            alt={project.name}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        </div>
-                        <CardContent className="p-6 relative">
-                          <h3 className="text-xl font-bold text-[#141c4c] dark:text-white mb-3 group-hover:text-[#0b90d8] transition-colors">
-                            {project.name}
-                          </h3>
-                          <p className="text-gray-600 dark:text-gray-300">
-                            {project.description}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
+          <div className="w-full px-4 md:px-8 max-w-screen-xl mx-auto">
+  <Tabs defaultValue="inProgress" className="mt-8">
+  <TabsList className="w-full max-w-2xl mx-auto flex justify-center gap-2 bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-full p-1">
+  <TabsTrigger
+    value="inProgress"
+    className="rounded-full text-sm md:text-base transition-all data-[state=active]:bg-[#0b90d8] data-[state=active]:text-white"
+  >
+    En ejecución
+  </TabsTrigger>
+  <TabsTrigger
+    value="completed"
+    className="rounded-full text-sm md:text-base transition-all data-[state=active]:bg-[#0b90d8] data-[state=active]:text-white"
+  >
+    Ejecutados
+  </TabsTrigger>
+  <TabsTrigger
+    value="prototypes"
+    className="rounded-full text-sm md:text-base transition-all data-[state=active]:bg-[#0b90d8] data-[state=active]:text-white"
+  >
+    Prototipos
+  </TabsTrigger>
+</TabsList>
+    {Object.entries(projectCategories).map(([category, projects]) => (
+      <TabsContent key={category} value={category}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {projects.map((project, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              key={index}
+            >
+              <Card className="group overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
-              </TabsContent>
-            ))}
-          </Tabs>
+                <CardContent className="p-6 relative">
+                  <h3 className="text-xl font-bold text-[#141c4c] dark:text-white mb-3 group-hover:text-[#0b90d8] transition-colors">
+                    {project.name}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {project.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </TabsContent>
+    ))}
+  </Tabs>
+</div>
+
 
           <motion.div
             initial={{ opacity: 0 }}

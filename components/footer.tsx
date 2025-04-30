@@ -11,15 +11,21 @@ import {
   Phone,
   MessageCircle,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export function Footer() {
+  const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
 
-    const [mounted, setMounted] = useState(false);
-    const { theme, setTheme } = useTheme();
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  
+  const logoSrc = mounted && theme === "dark"
+    ? "https://www.gatewayit.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgateway-logo.fa0c7038.png&w=256&q=75"
+    : "https://blog.gatewayit.co/wp-content/uploads/2023/04/cropped-gateway-it-logo-4-1.png";
+
   return (
     <footer className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8">
       {/* Decorative Elements */}
@@ -29,18 +35,14 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto px-6 relative">
-        {/* Top Section with Logo and Newsletter */}
+        {/* Top Section with Logo */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 pb-12 border-b border-gray-200 dark:border-gray-700">
           <Link
             href="/"
             className="block mb-4 md:mb-0 transform hover:scale-105 transition-transform"
           >
             <Image
-              src={`${
-                mounted && theme === "dark"
-                  ? "https://www.gatewayit.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgateway-logo.fa0c7038.png&w=256&q=75"
-                  : "https://blog.gatewayit.co/wp-content/uploads/2023/04/cropped-gateway-it-logo-4-1.png"
-              }`}
+              src={logoSrc}
               alt="Gateway IT"
               width={180}
               height={48}
@@ -53,9 +55,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Nosotros */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-              Nosotros
-            </h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Nosotros</h3>
             <ul className="space-y-3">
               {[
                 { name: "Inicio", href: "/" },
@@ -80,9 +80,7 @@ export function Footer() {
 
           {/* Contacto */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-              Contacto
-            </h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Contacto</h3>
             <ul className="space-y-4">
               <li className="group flex items-start space-x-3 text-gray-600 dark:text-gray-400">
                 <MapPin className="h-5 w-5 text-[#0b90d8] flex-shrink-0 mt-1" />
@@ -108,9 +106,7 @@ export function Footer() {
 
           {/* Links de interés */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-              Links de interés
-            </h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Links de interés</h3>
             <ul className="space-y-3">
               {[
                 "Política de tratamiento de datos",
@@ -131,9 +127,7 @@ export function Footer() {
 
           {/* Redes Sociales */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-              Síguenos
-            </h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Síguenos</h3>
             <div className="grid grid-cols-2 gap-4">
               <Link
                 href="#"
