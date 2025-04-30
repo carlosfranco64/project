@@ -64,7 +64,7 @@ export function Navbar() {
 
             <Button
               asChild
-              className="bg-[#3db8ff] hover:bg-[#cc1a24] text-white"
+              className="bg-[#3db8ff] hover:bg-[#cc1a24] text-white hidden sm:block "
             >
               <Link href="https://tornado.gatewayit.co/login">
                 TORNADO DIGITAL
@@ -84,7 +84,6 @@ export function Navbar() {
             </Button>
 
             {/* Botón de Tornado Digital */}
-           
 
             {/* Botón del menú móvil */}
             <Button
