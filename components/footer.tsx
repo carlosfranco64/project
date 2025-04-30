@@ -1,10 +1,25 @@
 "use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  MapPin,
+  Mail,
+  Phone,
+  MessageCircle,
+} from "lucide-react";
+import { useState } from "react";
+import { useTheme } from "next-themes";
 
 export function Footer() {
+
+    const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+
+  
   return (
     <footer className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8">
       {/* Decorative Elements */}
@@ -16,9 +31,16 @@ export function Footer() {
       <div className="container mx-auto px-6 relative">
         {/* Top Section with Logo and Newsletter */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 pb-12 border-b border-gray-200 dark:border-gray-700">
-          <Link href="/" className="block mb-4 md:mb-0 transform hover:scale-105 transition-transform">
+          <Link
+            href="/"
+            className="block mb-4 md:mb-0 transform hover:scale-105 transition-transform"
+          >
             <Image
-              src="https://www.gatewayit.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgateway-logo.fa0c7038.png&w=256&q=75"
+              src={`${
+                mounted && theme === "dark"
+                  ? "https://www.gatewayit.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgateway-logo.fa0c7038.png&w=256&q=75"
+                  : "https://blog.gatewayit.co/wp-content/uploads/2023/04/cropped-gateway-it-logo-4-1.png"
+              }`}
               alt="Gateway IT"
               width={180}
               height={48}
@@ -31,15 +53,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Nosotros */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Nosotros</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              Nosotros
+            </h3>
             <ul className="space-y-3">
               {[
-                { name: 'Inicio', href: '/' },
-                { name: 'Nosotros', href: '/nosotros' },
-                { name: 'Servicios', href: '/servicios' },
-                { name: 'I+D+i', href: '/idi' },
-                { name: 'Proyectos', href: '/proyectos' },
-                { name: 'Trabaja con nosotros', href: '/trabaja-con-nosotros' }
+                { name: "Inicio", href: "/" },
+                { name: "Nosotros", href: "/nosotros" },
+                { name: "Servicios", href: "/servicios" },
+                { name: "I+D+i", href: "/idi" },
+                { name: "Proyectos", href: "/proyectos" },
+                { name: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -56,7 +80,9 @@ export function Footer() {
 
           {/* Contacto */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Contacto</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              Contacto
+            </h3>
             <ul className="space-y-4">
               <li className="group flex items-start space-x-3 text-gray-600 dark:text-gray-400">
                 <MapPin className="h-5 w-5 text-[#0b90d8] flex-shrink-0 mt-1" />
@@ -67,23 +93,29 @@ export function Footer() {
               </li>
               <li className="group flex items-center space-x-3 text-gray-600 dark:text-gray-400">
                 <Phone className="h-5 w-5 text-[#0b90d8]" />
-                <span className="group-hover:text-[#0b90d8] transition-colors">305 2442919</span>
+                <span className="group-hover:text-[#0b90d8] transition-colors">
+                  305 2442919
+                </span>
               </li>
               <li className="group flex items-center space-x-3 text-gray-600 dark:text-gray-400">
                 <Mail className="h-5 w-5 text-[#0b90d8]" />
-                <span className="group-hover:text-[#0b90d8] transition-colors">contacto@gatewayit.co</span>
+                <span className="group-hover:text-[#0b90d8] transition-colors">
+                  contacto@gatewayit.co
+                </span>
               </li>
             </ul>
           </div>
 
           {/* Links de interés */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Links de interés</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              Links de interés
+            </h3>
             <ul className="space-y-3">
               {[
-                'Política de tratamiento de datos',
-                'Aviso de privacidad',
-                'Reglamento interno'
+                "Política de tratamiento de datos",
+                "Aviso de privacidad",
+                "Reglamento interno",
               ].map((text) => (
                 <li key={text}>
                   <Link
@@ -99,35 +131,45 @@ export function Footer() {
 
           {/* Redes Sociales */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Síguenos</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              Síguenos
+            </h3>
             <div className="grid grid-cols-2 gap-4">
               <Link
                 href="#"
                 className="flex items-center space-x-2 p-3 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group"
               >
                 <MessageCircle className="h-5 w-5 text-[#25D366] group-hover:scale-110 transition-transform" />
-                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#25D366] transition-colors">WhatsApp</span>
+                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#25D366] transition-colors">
+                  WhatsApp
+                </span>
               </Link>
               <Link
                 href="#"
                 className="flex items-center space-x-2 p-3 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group"
               >
                 <Linkedin className="h-5 w-5 text-[#0A66C2] group-hover:scale-110 transition-transform" />
-                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#0A66C2] transition-colors">LinkedIn</span>
+                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#0A66C2] transition-colors">
+                  LinkedIn
+                </span>
               </Link>
               <Link
                 href="#"
                 className="flex items-center space-x-2 p-3 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group"
               >
                 <Instagram className="h-5 w-5 text-[#E4405F] group-hover:scale-110 transition-transform" />
-                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#E4405F] transition-colors">Instagram</span>
+                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#E4405F] transition-colors">
+                  Instagram
+                </span>
               </Link>
               <Link
                 href="#"
                 className="flex items-center space-x-2 p-3 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group"
               >
                 <Facebook className="h-5 w-5 text-[#1877F2] group-hover:scale-110 transition-transform" />
-                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#1877F2] transition-colors">Facebook</span>
+                <span className="text-gray-600 dark:text-gray-400 group-hover:text-[#1877F2] transition-colors">
+                  Facebook
+                </span>
               </Link>
             </div>
           </div>

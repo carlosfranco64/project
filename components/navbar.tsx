@@ -19,103 +19,113 @@ const navigation = [
 
 export function Navbar() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
   return (
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-50 border-b shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center">
+    <header className="fixed top-0 left-0 w-full z-50 border-b bg-white dark:bg-gray-900 shadow-md">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          {mounted && (
             <Image
-              src={`${
-                mounted && theme === "dark"
-                  ? " https://www.gatewayit.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgateway-logo.fa0c7038.png&w=256&q=75"
+              src={
+                theme === "dark"
+                  ? "https://www.gatewayit.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgateway-logo.fa0c7038.png&w=256&q=75"
                   : "https://blog.gatewayit.co/wp-content/uploads/2023/04/cropped-gateway-it-logo-4-1.png"
-              }`}
+              }
               alt="Gateway IT"
               width={150}
               height={40}
               className="h-8 w-auto"
+              priority
             />
-          </Link>
+          )}
+        </Link>
 
-          {/* Menú de navegación (visible en pantallas grandes) */}
-          <div className="hidden md:flex md:space-x-6">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Botones de acciones */}
-          <div className="flex items-center space-x-4">
-            {/* Botón de cambio de tema */}
-
-            <Button
-              asChild
-              className="bg-[#3db8ff] hover:bg-[#cc1a24] text-white hidden sm:block "
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-6">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
             >
-              <Link href="https://tornado.gatewayit.co/login">
-                TORNADO DIGITAL
-              </Link>
-            </Button>
-
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {mounted && theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-
-            {/* Botón de Tornado Digital */}
-
-            {/* Botón del menú móvil */}
-            <Button
-              variant="ghost"
-              className="md:hidden"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {menuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
-          </div>
+              {item.name}
+            </Link>
+          ))}
         </div>
 
-        {/* Menú desplegable en móviles */}
-        {menuOpen && (
-          <div className="md:hidden flex flex-col space-y-4 p-4 bg-white dark:bg-gray-900 shadow-md">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    </nav>
+        {/* Actions */}
+        <div className="flex items-center space-x-4">
+          {/* Tornado Digital (desktop only) */}
+          <Button
+            asChild
+            className="bg-[#3db8ff] hover:bg-[#cc1a24] text-white hidden sm:block"
+          >
+            <Link href="https://tornado.gatewayit.co/login">
+              TORNADO DIGITAL
+            </Link>
+          </Button>
+
+          {/* Theme Toggle */}
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {mounted && (theme === "dark" ? <Sun /> : <Moon />)}
+          </Button>
+
+          {/* Mobile Menu Toggle */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+          >
+            {menuOpen ? <X /> : <Menu />}
+          </Button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden bg-white dark:bg-gray-900 p-4 space-y-4 shadow transition-all"
+        >
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="block text-gray-900 dark:text-gray-100 hover:text-[#ee1e2a] transition-colors"
+            >
+              {item.name}
+            </Link>
+          ))}
+
+          <Button
+            asChild
+            className="bg-[#3db8ff] hover:bg-[#cc1a24] text-white w-full"
+          >
+            <Link href="https://tornado.gatewayit.co/login">
+              TORNADO DIGITAL
+            </Link>
+          </Button>
+        </div>
+      )}
+    </header>
   );
 }
