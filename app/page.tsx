@@ -1,6 +1,8 @@
 // import Image from 'next/image';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Eye, Lightbulb, Target } from "lucide-react";
 
 export default function Home() {
   return (
@@ -11,16 +13,28 @@ export default function Home() {
         <div className="container px-4 z-10 text-center">
           <h1 className="text-5xl md:text-7xl font-extrabold text-[#141c4c] dark:text-white leading-tight mb-6">
             Innovation Technologies
-            <span className="block text-[#0b90d8] drop-shadow-md">GATEWAY IT</span>
+            <span className="block text-[#0b90d8] drop-shadow-md">
+              GATEWAY IT
+            </span>
           </h1>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-10">
-            Empresa del Caribe colombiano que combina creatividad y tecnología para ofrecer soluciones innovadoras en educación, salud y negocios.
+            Empresa del Caribe colombiano que combina creatividad y tecnología
+            para ofrecer soluciones innovadoras en educación, salud y negocios.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button asChild size="lg" className="shadow-md hover:scale-105 transition">
+            <Button
+              asChild
+              size="lg"
+              className="shadow-md hover:scale-105 transition"
+            >
               <Link href="/nosotros">Conócenos</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="shadow-md hover:scale-105 transition">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="shadow-md hover:scale-105 transition"
+            >
               <Link href="/contacto">Contáctanos</Link>
             </Button>
           </div>
@@ -37,21 +51,21 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      {/* <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
               {
                 title: "Compromiso",
-                desc: "Apoyamos los Objetivos de Desarrollo Sostenible mediante soluciones tecnológicas sostenibles."
+                desc: "Apoyamos los Objetivos de Desarrollo Sostenible mediante soluciones tecnológicas sostenibles.",
               },
               {
                 title: "Misión",
-                desc: "Ejecutamos proyectos de investigación aplicada, desarrollo tecnológico y comercialización."
+                desc: "Ejecutamos proyectos de investigación aplicada, desarrollo tecnológico y comercialización.",
               },
               {
                 title: "Visión",
-                desc: "Ser líderes en tecnología e innovación a nivel nacional e internacional para 2025."
+                desc: "Ser líderes en tecnología e innovación a nivel nacional e internacional para 2025.",
               },
             ].map((item, i) => (
               <div
@@ -66,6 +80,42 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section> */}
+
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-0 ">
+          <Card className="bg-gray-50 dark:bg-gray-800">
+            <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+              <Target className="h-12 w-12 text-[#ee1e2a]" />
+              <h3 className="text-2xl font-bold">Compromiso</h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Comprometidos con el desarrollo sostenible y los Objetivos de
+                Desarrollo Sostenible (ODS).
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="bg-gray-50 dark:bg-gray-800">
+            <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+              <Lightbulb className="h-12 w-12 text-[#f4b545]" />
+              <h3 className="text-2xl font-bold">Misión</h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Centro de desarrollo tecnológico dedicado a la formulación y
+                ejecución de proyectos de investigación aplicada.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="bg-gray-50 dark:bg-gray-800">
+            {" "}
+            <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+              <Eye className="h-12 w-12 text-[#04a24e]" />
+              <h3 className="text-2xl font-bold">Visión</h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Ser líderes reconocidos en soluciones y proyectos de ciencia,
+                tecnología e innovación en Colombia para 2025.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       {/* Propuesta de Valor */}
@@ -78,22 +128,24 @@ export default function Home() {
             {[
               {
                 title: "Gestión de Proyectos",
-                desc: "Consultoría para desarrollo y ejecución de proyectos estratégicos."
+                desc: "Consultoría para desarrollo y ejecución de proyectos estratégicos.",
               },
               {
                 title: "Desarrollo de Software",
-                desc: "Creamos soluciones digitales, móviles y SaaS personalizadas."
+                desc: "Creamos soluciones digitales, móviles y SaaS personalizadas.",
               },
               {
                 title: "Consultorías Especializadas",
-                desc: "Transformación digital, seguridad informática y prototipado."
-              }
+                desc: "Transformación digital, seguridad informática y prototipado.",
+              },
             ].map((item, i) => (
               <div
                 key={i}
                 className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition-all text-center"
               >
-                <h4 className="text-xl font-semibold mb-2 text-[#0b90d8]">{item.title}</h4>
+                <h4 className="text-xl font-semibold mb-2 text-[#0b90d8]">
+                  {item.title}
+                </h4>
                 <p className="text-gray-700 dark:text-gray-300">{item.desc}</p>
               </div>
             ))}
@@ -115,8 +167,12 @@ export default function Home() {
               { label: "Productos Destacados", value: "3" },
             ].map((item, i) => (
               <div key={i}>
-                <h3 className="text-5xl font-bold text-[#0b90d8]">{item.value}</h3>
-                <p className="text-gray-700 dark:text-gray-300 mt-2">{item.label}</p>
+                <h3 className="text-5xl font-bold text-[#0b90d8]">
+                  {item.value}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 mt-2">
+                  {item.label}
+                </p>
               </div>
             ))}
           </div>
