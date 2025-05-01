@@ -98,7 +98,7 @@ const investments = [
     market: "Colombia y Latinoamérica"
   },
   {
-    name: "EVA",
+    name: "AIDE",
     description: "Sistema SaaS para gestión de certificaciones de calidad",
     investment: "250,000 USD",
     market: "Estados Unidos y Colombia"

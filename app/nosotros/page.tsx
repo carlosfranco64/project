@@ -5,27 +5,35 @@ export default function AboutPage() {
     {
       name: 'Elkin Quiñonez A.',
       role: 'CEO',
-      description: 'Más de 15 años de experiencia en el sector educativo, público y privado, transformación digital, plataformas tecnológicas, desarrollo de software, proyectos de I+D+i, MinCiencias, Redes, IoT, smart city, IA. 4Ri Ingeniero de Sistemas, Doctor en Gestión de la Innovación, Postdoctorado en Gestión de la Ciencia y la Tecnología.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop'
+      description:
+        'Más de 15 años de experiencia en el sector educativo, público y privado, transformación digital, plataformas tecnológicas, desarrollo de software, proyectos de I+D+i, MinCiencias, Redes, IoT, smart city, IA. 4Ri Ingeniero de Sistemas, Doctor en Gestión de la Innovación, Postdoctorado en Gestión de la Ciencia y la Tecnología.',
+      image:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
     },
     {
       name: 'Silvana Gonzalez Reyes',
       role: 'Gerente General',
-      description: 'Contadora pública con más de 20 años de experiencia en dirección estratégica en empresas del sector salud, ciencia y tecnología, consultora y asesora financiera en creación y consolidación de nuevas organizaciones de CTI.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop'
+      description:
+        'Contadora pública con más de 20 años de experiencia en dirección estratégica en empresas del sector salud, ciencia y tecnología, consultora y asesora financiera en creación y consolidación de nuevas organizaciones de CTI.',
+      image:
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
     },
     {
       name: 'Natalia García C.',
       role: 'Coordinadora de proyectos',
-      description: 'Mas de 15 años de experiencia en Estrategia corporativa, incluyendo 8 años en Planeación de universidades y líder de procesos de certificación en alta calidad. Ingeniera industrial con MBA, especialización en Gerencia de Proyectos de CTI y Gestión de Seguridad y Salud en el trabajo. Docente en áreas de gestión para ingenieros.',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop'
+      description:
+        'Más de 15 años de experiencia en Estrategia corporativa, incluyendo 8 años en Planeación de universidades y líder de procesos de certificación en alta calidad. Ingeniera industrial con MBA, especialización en Gerencia de Proyectos de CTI y Gestión de Seguridad y Salud en el trabajo. Docente en áreas de gestión para ingenieros.',
+      image:
+        'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop',
     },
     {
       name: 'Salim Nassif',
       role: 'Director desarrollo tecnológico',
-      description: 'Más de 20 años de experiencia en la educación, banca, desarrollo de software, servidores, servicios tecnológicos, dirección de proyectos de CTI, Ingeniero de sistemas especializado en desarrollo de software, IA, 4Ri, seguridad informática.',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop'
-    }
+      description:
+        'Más de 20 años de experiencia en la educación, banca, desarrollo de software, servidores, servicios tecnológicos, dirección de proyectos de CTI, Ingeniero de sistemas especializado en desarrollo de software, IA, 4Ri, seguridad informática.',
+      image:
+        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop',
+    },
   ];
 
   const expertise = [
@@ -39,7 +47,7 @@ export default function AboutPage() {
     'Especialistas en Telecomunicaciones y desarrollo de Software con IA',
     'Ingenieros de Sistemas, ingenieros industriales, carreras afines',
     'Administradores y Contadores Públicos',
-    'Abogados'
+    'Abogados',
   ];
 
   return (
@@ -72,7 +80,10 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+              <div
+                key={index}
+                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden"
+              >
                 <div className="relative h-64">
                   <Image
                     src={member.image}
@@ -82,9 +93,15 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#141c4c] dark:text-white mb-2">{member.name}</h3>
-                  <p className="text-[#0b90d8] font-semibold mb-4">{member.role}</p>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{member.description}</p>
+                  <h3 className="text-xl font-bold text-[#141c4c] dark:text-white mb-2">
+                    {member.name}
+                  </h3>
+                  <p className="text-[#0b90d8] font-semibold mb-4">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    {member.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -108,6 +125,35 @@ export default function AboutPage() {
                 <p className="text-gray-700 dark:text-gray-300">{item}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Presence Section */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-[#141c4c] dark:text-white mb-12 text-center">
+            Nuestra Presencia
+          </h2>
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-semibold text-[#0b90d8] mb-2">
+                Sede Principal
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300">Montería, Córdoba</p>
+            </div>
+            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-semibold text-[#0b90d8] mb-2">Alcance</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Cobertura Nacional e Internacional
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md md:col-span-2">
+              <h3 className="text-lg font-semibold text-[#0b90d8] mb-2">Experiencia</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                +17 proyectos ejecutados en diversas regiones del país
+              </p>
+            </div>
           </div>
         </div>
       </section>

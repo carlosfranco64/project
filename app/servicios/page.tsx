@@ -1,114 +1,106 @@
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import {
+  Lightbulb,
+  Code,
+  Server,
+  CloudCog,
+  GraduationCap,
+  Puzzle,
+  Globe,
+} from 'lucide-react';
 
 export default function ServicesPage() {
   const services = [
     {
+      icon: Lightbulb,
       title: 'Proyectos I+D+I',
-      items: [
-        'Formulación',
-        'Gestión',
-        'Ejecución',
-        'Alianzas',
-        'Capacitación'
-      ]
+      description:
+        'Formulación, gestión y ejecución de proyectos de investigación, desarrollo e innovación.',
+      items: ['Formulación', 'Gestión', 'Ejecución', 'Alianzas', 'Capacitación'],
     },
     {
+      icon: Code,
       title: 'Desarrollo Tecnológico (CDT)',
-      items: [
-        'Prototipado',
-        'Transformación digital',
-        'Tecnología 4iR',
-        'Maduración tecnológica',
-        'Otros'
-      ]
+      description:
+        'Prototipado, transformación digital y maduración tecnológica con enfoque 4iR.',
+      items: ['Prototipado', 'Transformación digital', 'Tecnología 4iR', 'Maduración tecnológica'],
     },
     {
+      icon: Server,
       title: 'Plataformas tecnológicas',
-      items: [
-        'Licencias de software propio',
-        'Licencias de software comercial',
-        'Hardware para empresa'
-      ]
+      description:
+        'Licencias de software propio y comercial, además de hardware empresarial.',
+      items: ['Software propio', 'Software comercial', 'Hardware empresarial'],
     },
     {
+      icon: CloudCog,
       title: 'Outsourcing tecnológico',
-      items: [
-        'VPS: Alquiler de servidores virtuales',
-        'Servidores dedicados (nube)',
-        'Software',
-        'Soporte de plataformas y sistemas de información'
-      ]
+      description:
+        'Infraestructura y soporte tecnológico externo para operación segura y continua.',
+      items: ['VPS', 'Servidores dedicados', 'Software', 'Soporte técnico'],
     },
     {
+      icon: GraduationCap,
       title: 'Capacitaciones y certificaciones',
-      items: [
-        'Sistema de CTI Colombia',
-        'Transformación digital',
-        'Cuarta y Quinta Revolución industrial',
-        'Otros'
-      ]
-    }
+      description:
+        'Formación en CTI, transformación digital y nuevas revoluciones industriales.',
+      items: ['Sistema CTI', 'Transformación digital', '4iR y 5iR', 'Otros'],
+    },
   ];
 
   const additionalServices = [
-    'Identidad Digital, web empresariales y Tienda Online de ventas y pedidos',
-    'Seguridad Informática y Gestión de redes',
-    'Venta y alquiler de equipos de comunicaciones',
-    'Auditorias de seguridad, redes y telecomunicaciones',
+    'Identidad digital, sitios web y tiendas online',
+    'Seguridad informática y redes',
+    'Venta y alquiler de equipos',
+    'Auditorías de seguridad',
     'Servicios en la nube',
     'Automatización de procesos',
-    'Prototipado',
-    'Consultoría Tecnológica',
-    'Desarrollo a la Medida',
-    'Certificaciones y acreditaciones',
-    'Transición energética y comunidades energéticas'
+    'Consultoría tecnológica',
+    'Desarrollo a la medida',
+    'Transición energética y comunidades',
   ];
 
   return (
     <div className="pt-24 min-h-screen bg-gradient-to-b from-[#f9fcfb] to-[#e6f1f8] dark:from-gray-900 dark:to-gray-800">
-      {/* Hero Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#141c4c] dark:text-white mb-8 text-center">
+      {/* Hero */}
+      <section className="text-center py-16">
+        <div className="container px-4 mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#141c4c] dark:text-white mb-6">
             Nuestros servicios
           </h1>
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-              En Gateway I.T, ofrecemos servicios integrales de formulación, gestión y administración de proyectos de ciencia, tecnología e innovación. Nuestro enfoque se centra en proporcionar soluciones de vanguardia y valor agregado a nuestros clientes.
-            </p>
-            <Button asChild size="lg">
-              <Link href="/contacto">
-                ¡Contáctanos!
-              </Link>
-            </Button>
-          </div>
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+            Soluciones innovadoras en tecnología, innovación y formación para impulsar tu empresa.
+          </p>
+          <Button asChild size="lg">
+            <Link href="/contacto">¡Contáctanos!</Link>
+          </Button>
         </div>
       </section>
 
-      {/* Main Services Grid */}
+      {/* Servicios principales */}
       <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#141c4c] dark:text-white mb-12 text-center">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-[#141c4c] dark:text-white text-center mb-12">
             Servicios principales
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map(({ icon: Icon, title, description, items }, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6"
+                className="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-xl transition-all p-6"
               >
-                <h3 className="text-xl font-bold text-[#141c4c] dark:text-white mb-4">
-                  {service.title}
-                </h3>
-                <ul className="space-y-2">
-                  {service.items.map((item, itemIndex) => (
-                    <li
-                      key={itemIndex}
-                      className="flex items-center text-gray-700 dark:text-gray-300"
-                    >
-                      <div className="w-2 h-2 bg-[#0b90d8] rounded-full mr-3" />
+                <div className="flex items-center mb-4 text-[#0b90d8]">
+                  <Icon className="w-6 h-6 mr-2" />
+                  <h3 className="text-xl font-bold text-[#141c4c] dark:text-white">
+                    {title}
+                  </h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">{description}</p>
+                <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  {items.map((item, i) => (
+                    <li key={i} className="flex items-center">
+                      <span className="w-2 h-2 bg-[#0b90d8] rounded-full mr-2" />
                       {item}
                     </li>
                   ))}
@@ -119,20 +111,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Additional Services */}
+      {/* Servicios adicionales */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#141c4c] dark:text-white mb-12 text-center">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-[#141c4c] dark:text-white text-center mb-12">
             Servicios adicionales
           </h2>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid gap-4 max-w-5xl mx-auto grid-cols-1 sm:grid-cols-2">
             {additionalServices.map((service, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md flex items-center"
+                className="bg-white dark:bg-gray-900 p-4 rounded-xl shadow hover:shadow-lg transition flex items-start"
               >
-                <div className="w-2 h-2 bg-[#0b90d8] rounded-full mr-3" />
-                <p className="text-gray-700 dark:text-gray-300">{service}</p>
+                <Puzzle className="w-5 h-5 text-[#0b90d8] mt-1 mr-3 shrink-0" />
+                <p className="text-gray-700 dark:text-gray-300 text-sm">{service}</p>
               </div>
             ))}
           </div>
