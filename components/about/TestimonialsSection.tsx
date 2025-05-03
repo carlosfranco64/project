@@ -12,9 +12,9 @@ export default function TestimonialsSection() {
       color: "bg-blue-50 dark:bg-blue-950/30"
     },
     {
-      quote: "El equipo de Gateway I.T demostró un excepcional dominio técnico y visión estratégica durante la implementación de nuestro sistema de gestión. El resultado superó nuestras expectativas.",
-      author: "Carlos Mendoza",
-      position: "CEO, TechSolutions Colombia",
+      quote: "El equipo de Gateway IT demostró un excepcional dominio técnico y visión estratégica durante la implementación de nuestro sistema de gestión. El resultado superó nuestras expectativas.",
+      author: "Carlos Adriano",
+      position: "CEO, TechFuCol",
       color: "bg-purple-50 dark:bg-purple-950/30"
     },
     {

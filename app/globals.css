@@ -2,20 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Color mode fallback variables */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
- 
-@media (prefers-color-scheme: dark)  {
-  :root { 
+
+@media (prefers-color-scheme: dark) {
+  :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
 }
 
+/* Design Tokens and Theming */
 @layer base {
   :root {
     --background: 210 40% 98%;
@@ -90,83 +92,67 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground antialiased;
   }
 
-  /* Enhanced Typography */
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight;
   }
 
-  /* Improved Link Styles */
   a {
     @apply transition-colors duration-200;
   }
 
-  /* Better Card Styles */
   .card {
     @apply bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm;
   }
 
-  /* Enhanced Button Styles */
   .button {
     @apply shadow-sm hover:shadow-md transition-all duration-200;
   }
 
-  /* Improved Form Elements */
   input, textarea, select {
     @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm;
   }
 
-  /* Better Container Padding */
   .container {
     @apply px-4 md:px-6 lg:px-8;
   }
 
-  /* Enhanced Section Spacing */
   section {
     @apply py-12 md:py-16 lg:py-20;
   }
 
-  /* Improved List Styles */
   ul, ol {
     @apply space-y-2;
   }
 
-  /* Better Table Styles */
   table {
     @apply w-full border-collapse bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm;
   }
 
-  /* Enhanced Image Styles */
   img {
     @apply rounded-lg shadow-sm;
   }
 
-  /* Better Code Block Styles */
   pre, code {
     @apply bg-gray-100/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-md;
   }
 
-  /* Improved Quote Styles */
   blockquote {
     @apply border-l-4 border-primary pl-4 italic;
   }
 
-  /* Enhanced Focus Styles */
   *:focus-visible {
     @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
   }
 
-  /* Better Scrollbar Styles */
   ::-webkit-scrollbar {
     @apply w-2;
   }
@@ -179,33 +165,28 @@
     @apply bg-gray-300 dark:bg-gray-600 rounded-full;
   }
 
-  /* Enhanced Selection Styles */
   ::selection {
     @apply bg-primary/20 text-foreground;
   }
 }
 
-/* Glass Morphism Effects */
+/* Utility Classes */
 .glass {
   @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/20 dark:border-gray-700/20;
 }
 
-/* Enhanced Gradient Backgrounds */
 .gradient-bg {
   @apply bg-gradient-to-br from-primary/5 to-secondary/5;
 }
 
-/* Improved Shadow Effects */
 .shadow-soft {
   @apply shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50;
 }
 
-/* Better Hover Effects */
 .hover-lift {
   @apply transition-transform duration-200 hover:-translate-y-1;
 }
 
-/* Enhanced Animation Classes */
 .fade-in {
   @apply animate-[fadeIn_0.5s_ease-in-out];
 }
@@ -214,22 +195,30 @@
   @apply animate-[slideUp_0.5s_ease-in-out];
 }
 
-/* Improved Grid Layouts */
 .auto-grid {
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 
-/* Better Flex Layouts */
 .flex-center {
   @apply flex items-center justify-center;
 }
 
-/* Enhanced Border Styles */
 .border-soft {
   @apply border border-gray-200/50 dark:border-gray-700/50;
 }
 
-/* Improved Text Gradients */
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Scroll animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
 }
