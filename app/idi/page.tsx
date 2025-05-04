@@ -8,6 +8,8 @@ import { SectionHeading } from '@/components/idi/SectionHeading';
 import { ResearchLineCard } from '@/components/idi/ResearchLineCard';
 import { BackgroundPattern } from '@/components/idi/BackgroundPattern';
 import { InnovationSectorBadge } from '@/components/idi/InnovationSectorBadge';
+import { InfiniteLogoSlider } from '@/components/idi/InfiniteLogoSlider';
+
 import { motion } from 'framer-motion';
 import { 
   LightbulbIcon, 
@@ -51,6 +53,40 @@ export default function IDIPage() {
     'Logística',
     'Turismo'
   ];
+
+  const partners = [
+    {
+      name: 'Microsoft',
+      logo: 'https://images.pexels.com/photos/5063399/pexels-photo-5063399.jpeg',
+      
+    },
+    {
+      name: 'Google',
+      logo: 'https://images.pexels.com/photos/5063399/pexels-photo-5063399.jpeg',
+      
+    },
+    {
+      name: 'Amazon',
+      logo: 'https://images.pexels.com/photos/5063399/pexels-photo-5063399.jpeg',
+      
+    },
+    {
+      name: 'IBM',
+      logo: 'https://images.pexels.com/photos/5063399/pexels-photo-5063399.jpeg',
+      
+    },
+    {
+      name: 'Oracle',
+      logo: 'https://images.pexels.com/photos/5063399/pexels-photo-5063399.jpeg',
+      
+    },
+    {
+      name: 'Intel',
+      logo: 'https://images.pexels.com/photos/5063399/pexels-photo-5063399.jpeg',
+      
+    }
+  ];
+
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -315,6 +351,30 @@ export default function IDIPage() {
           </AnimatedSection>
         </div>
       </section>
+
+
+{/* slider de aliados */}
+
+<section className="relative py-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
+        <BackgroundPattern variant="dots" className="opacity-20" />
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <SectionHeading 
+              title="Nuestros Aliados"
+              subtitle="Organizaciones que confían en nuestra capacidad de innovación"
+            />
+          </AnimatedSection>
+          
+          <AnimatedSection delay={200}>
+            <div className="max-w-6xl mx-auto">
+              <InfiniteLogoSlider partners={partners} />
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+
+
       
       {/* Call to Action */}
       <section className="relative py-20 bg-gradient-to-br from-[#141c4c] to-[#0b90d8] text-white">
