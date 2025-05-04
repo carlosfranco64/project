@@ -6,7 +6,7 @@ import { Sparkles } from 'lucide-react';
 export default function Hero() {
   return (
     <section className="py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent dark:from-primary/10 dark:to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent dark:from-primary/20 dark:to-transparent"></div>
       
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -57,12 +57,27 @@ export default function Hero() {
             className="mt-10"
           >
             <a 
-              href="#positions" 
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 dark:from-blue-500 dark:to-indigo-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2"
-            >
-              Explorar oportunidades
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><path d="M12 5v14M5 12h14"/></svg>
-            </a>
+  href="#positions"
+  className="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 dark:from-blue-500 dark:to-indigo-500 text-white rounded-full font-medium shadow-md sm:shadow-lg hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 inline-flex items-center gap-1 sm:gap-2"
+>
+  <span className="hidden xs:inline"></span>
+  <span className="inline sm:inline">Explorar oportunidades</span>
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className="ml-1"
+  >
+    <path d="M12 5v14M5 12h14"/>
+  </svg>
+</a>
+
           </motion.div>
         </motion.div>
       </div>

@@ -42,11 +42,11 @@ export default function Home() {
       </section>
 
       {/* Banner */}
-      <section className="p-0">
+      <section className="p-0 m-0">
         <img
           src="https://www.gatewayit.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBannerCarbonoCero1.6f6410c5.png&w=3840&q=75"
           alt="Banner"
-          className="w-full h-[300px] md:h-[500px] object-cover"
+          className="w-full h-full m-0 p-0 md:h-[500px] object-contain"
         />
       </section>
 
